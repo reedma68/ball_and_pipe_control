@@ -11,14 +11,13 @@ function action = set_pwm(device, pwm_value)
 % Modified by: YOUR NAME and DATE
 
 %% Force PWM value to be valid
-pwm_value = max(min(pwm_value,4095),0);
+pwm_value = max(min(pwm_value,4095),0000);
 % Bound value to limits 0 to 4095
 
 %% Send Command
-action = string(pwm_value);
+action = "P" + string(sprintf('%04d',pwm_value));
 % string value of pwm_value
-s = serialport;
-write(COM2,action,string);
+write(device,action,"string");
 % use the serialport() command options to change the PWM value to action
 
 end
