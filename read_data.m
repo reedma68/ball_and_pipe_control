@@ -30,7 +30,7 @@ data = read(device,20,"string");
 % manual_pwm = 
 % target     = 
 % deadpan    = 
-data
+data;
 [distance,distancePercent] = ir2y(str2double(extractBetween(data,2,5)));
 pwm = extractBetween(data,7,10);
 target = extractBetween(data,12,15);

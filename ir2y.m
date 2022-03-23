@@ -11,14 +11,14 @@ function [y, pipe_percentage] = ir2y(ir)
 % Modified by: Ryan Bailey 2/9/2022
 
 %% Parameters
-ir_bottom = 1000  % IR reading when ball is at bottom of pipe
-ir_top    = 0085  % "                        " top of pipe
+ir_bottom = 1000;  % IR reading when ball is at bottom of pipe
+ir_top    = 0085;  % "                        " top of pipe
 y_top     = 0.9144; % Ball at top of the pipe [m]
 
 %% Bound the IR reading and send error message 
-ir = min(max(ir, ir_top), ir_bottom)
+ir = min(max(ir, ir_top), ir_bottom);
 
 %% Set
-y = 1000-ir
-pipe_percentage = y*100/915
+pipe_percentage = (ir - ir_top)/(ir_bottom - ir_top);
+y = pipe_percentage * y_top;
 

@@ -6,7 +6,7 @@
 % Modified by Team Rasool
 
 %% Start fresh
-close all; clc; clear device;
+close all; clc; clear device; clear;
 
 %% Connect to device
 device = serialport("COM3", 19200);
@@ -18,35 +18,36 @@ sample_rate = 0.1;  % Amount of time between controll actions [s]
 %% Give an initial burst to lift ball and keep in air
 set_pwm(device, 3400); % Initial burst to pick up ball
 n = 1;
-
+y_values = zeros(200);
 while n < 20           % loop to read data and save it in vector
-    [di,p,t,de] = read_data(device);
     pause(sample_rate)
-    y
-    y_values(n) = y;
+    [di,p,t,de] = read_data(device);
+    di
+    y_values(n) = di;
     n = n + 1; 
 end
 
 set_pwm(device, 2000);
-while n < 70
-    [di,p,t,de] = read_data(device);
+while n < 50
     pause(sample_rate)
-    y
-    y_values(n) = y;
+    [di,p,t,de] = read_data(device);
+    di
+    y_values(n) = di;
     n = n + 1;
 end
 
 set_pwm(device, 2525); % Set to lesser value to level out somewhere in
                        % the pipe
-while n < 130
+while n < 200
+    
     [di,p,t,de] = read_data(device);
-    pause(sample_rate)
-    y
-    y_values(n) = y;
+    di
+    y_values(n) = di;
     n = n + 1;
+    pause(sample_rate)
 end
 
-plot(n,y);
+plot(y_values);
 %% Initialize variables
 % action      = ; % Same value of last set_pwm   
 error       = 0;
