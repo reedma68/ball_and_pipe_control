@@ -3,7 +3,7 @@
 % The current control system is a PID controller.
 %
 % Created by Kyle Naddeo, Mon Jan 3 11:19:49 EST 
-% Modified by YOUR NAME AND DATE
+% Modified by Team Rasool
 
 %% Start fresh
 close all; clc; clear device;
@@ -16,12 +16,13 @@ target      = 0.5;   % Desired height of the ball [m]
 sample_rate = 0.25;  % Amount of time between controll actions [s]
 
 %% Give an initial burst to lift ball and keep in air
-set_pwm(device, 2900); % Initial burst to pick up ball
-pause(4) % Wait 0.1 seconds
+set_pwm(device, 3400); % Initial burst to pick up ball
+pause(10) % Wait 0.1 seconds
 [di,p,t,de] = read_data(device)
-set_pwm(device, 2550); % Set to lesser value to level out somewhere in
+set_pwm(device, 2350); % Set to lesser value to level out somewhere in
 % the pipe
-pause(3.1)
+
+pause(5)
 [di,p,t,de] = read_data(device)
 
 

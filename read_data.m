@@ -17,7 +17,7 @@ function [distance,pwm,target,deadpan] = read_data(device)
 %% Ask nicely for data
 % use the serialport() command options to write the correct letter to the
 % system (Hint: the letters are in the spec sheet)
-write(device,"S","string")
+device.writeline('s');
 %% Read data
 % use the serialport() command options to read the response
 
@@ -30,7 +30,8 @@ data = read(device,20,"string");
 % manual_pwm = 
 % target     = 
 % deadpan    = 
-distance = extractBetween(data,2,5);
+data
+[distance,distancePercent] = ir2y(str2double(extractBetween(data,2,5)));
 pwm = extractBetween(data,7,10);
 target = extractBetween(data,12,15);
 deadpan = extractBetween(data,17,20);
