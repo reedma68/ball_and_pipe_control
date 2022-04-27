@@ -9,10 +9,17 @@ Kappa Tau tuning is a method of tuning a PID (proportional, integral, derivative
 Kappa Tau tuning uses a set of tuning rules that have been developed through thorough simulations to find generalized patterns and correlations that can be applied to a number of different systems. The result of these simulations are standardized tables with set values to select from when designing a control system. These systems are characterized by static gain KP, ultimate gain KU, and ultimate period TU. The controller parameters are given as a function of the gain ratio: 𝜅 = 1/(KP x KU). Since the values for Kappa Tau are all based on pre-determined tables with values generated from complex simulation, there is somewhat limited flexibility when it comes to the implementation of this tuning method. The best apparoach is a test and check method, where a set of values is selected and put to the test on the ball and pipe system. Moving down the tables found in Kappa Tau research should yeild the most ideal combinaition.
 
 # Ziegler-Nichols Overview
-As briefly mentioned above, due to limited availablity of supporting documentation, Kappa-Tau tuning was not implemented for this control system. Rather, Zielger-Nichols was chosen for control system tuning, due to it's simpilier assembly and abundance of information available online. Ziegler-Nichols is a method of PID tuning that attempts to produce ideal values for the three PID gain parameters (Kp - the controller path gain, Ti - the controller's integrator time constant, Td - the controller's derivative time constant). These values are determined using the period Tu of the oscillation frequency at the stability limit, and the gain margin Ku for loop stability. 
+As briefly mentioned above, due to limited availablity of supporting documentation, Kappa-Tau tuning was not implemented for this control system. Rather, Zielger-Nichols was chosen for control system tuning, due to it's simpilier assembly and abundance of information available online. Ziegler-Nichols is a method of PID tuning that attempts to produce ideal values for the three PID gain parameters (Kp - the controller proportional gain, Ti - the controller's integrator time constant, Td - the controller's derivative time constant). These values are determined using the period Tu of the oscillation frequency at the stability limit, and the gain margin Ku for loop stability. 
 
 # Control Method Theory
+The Ziegler-Nichols method consists of three main parameters which allow control of the system response:
 
+Kp: Proportional Gain (increasing this value reduces rise time)
+Ti: Integral Time Constant
+Td: Derivative Time Constant (increasing this value improves stability and reduces overshoot %)
+
+Depending on whether a control system is implemented with a P, PI, PD, or PID controller, the respective parameters would be included in the transfer function. 
+The First step in the Ziegler-Nichols method is to set Kp to the maximum value your system will steadily oscilate at, making the system marginally stable. Because the system is now oscillating, the ultimate period Pcr can be measured. Both the value for Kp used to sustain oscillation and the value measured Pcr can then be used to determine the time constants Ti and Td.
 
 # Usage & Implementation Guide
 The system currently does not have proper functionality with the ball and pipe system.
