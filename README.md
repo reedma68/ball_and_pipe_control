@@ -15,4 +15,4 @@ As briefly mentioned above, due to limited availablity of supporting documentati
 
 
 # Usage & Implementation Guide
-
+The system currently does not have proper functionality with the ball and pipe system.
