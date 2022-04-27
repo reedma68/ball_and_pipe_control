@@ -6,7 +6,7 @@ Initially, the team set out to implement a PID control system with Kappa Tau tun
 # Kappa Tau Overview
 Kappa Tau tuning is a method of tuning a PID (proportional, integral, derivative) control system for desired system output. It is an evolution of the Ziegler-Nichols method (detailed below in a seperate section). Kappa Tau tuning was specifically designed to overcome a few shortcomings of the Ziegler-Nichols method, including a tendancy for high proportional gain and potential for error in systems with a lot of dead time. Though these were not massive concerns for this implementation, it felt pertanent to select a method that was more simple to implement but that came with fewer drawbacks.
 
-Kappa Tau tuning uses a set of tuning rules that have been developed through thorough simulations to find generalized patterns and correlations that can be applied to a number of different systems. 
+Kappa Tau tuning uses a set of tuning rules that have been developed through thorough simulations to find generalized patterns and correlations that can be applied to a number of different systems. The result of these simulations are standardized tables with set values to select from when designing a control system. 
 
 # Ziegler-Nichols Overview
 
