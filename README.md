@@ -4,7 +4,7 @@ The project consists of a collection of MATLAB codes to open serial communicatio
 Initially, the team set out to implement a PID control system with Kappa Tau tuning to specify a desired result. Unfortunately, due to a lack of supporting documentation online, the implementation of Kappa Tau tuning proved unsuccessful. As a result, the team decided to back track to a less particular but more well researched control method: Ziegler-Nichols. This method was chosen because it is the basis of Kappa Tau tuning, and therefore does not have signifigant differentiation in how it operates or is implemented. Nonetheless, below both Kappa-Tau and Ziegler-Nichols are reviewed and their intended function is described (even though Ziegler-Nichols is ultimately the method chosen for this project).
 
 # Kappa Tau Overview
-Kappa Tau tuning is a method of tuning a PID control system for desired optimal system output. It is an evolution of the Ziegler-Nichols method.
+Kappa Tau tuning is a method of tuning a PID (proportional, integral, derivative) control system for desired system output. It is an evolution of the Ziegler-Nichols method (detailed below in a seperate section). Kappa Tau tuning was specifically designed to overcome a few shortcomings of the Ziegler-Nichols method, including a tendancy for high proportional gain and potential for error in systems with a lot of dead time. Though these were not massive concerns for this implementation, it felt pertanent to 
 
 # Ziegler-Nichols Overview
 
