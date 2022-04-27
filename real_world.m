@@ -68,8 +68,37 @@ while true
     prev_action = action;
     %action = % Come up with a scheme no answer is right but do something
     % set_pwm(add_proper_args); % Implement action
-        
-    % Wait for next sample
+%% System wtihout PID controller
+pair=1.2250;%air density
+veq=2.4384;
+mball=0.027;%mass of ball in kg
+
+vball=0;%velocity of ball (ideal)
+c2=((2*9.8)/veq)*((mball-pair*vball)/mball);
+c3=6.3787*10^(-4);
+
+s = tf('s');
+
+sys=(c3*c2)/(s*(s+c2));
+
+%figure
+%step(sys)
+%% PID Controlled system
+kcr=700000000;%value of kp that produces sustained oscillation
+Pcr=0.0033;%period of sustained oscillation
+
+kp=0.6*kcr;
+Ti=0.5*Pcr;
+Td=0.125*Pcr;
+
+ki=kp/Ti;
+kd=kp*Td;
+cont=pid(kp,ki,kd)%tuning controller
+
+%figure
+%step(feedback(cont*sys,1))%step response used to get values below
+    
+% Wait for next sample
     pause(sample_rate)
 end
 
