@@ -18,7 +18,7 @@ Kp: Proportional Gain (increasing this value reduces rise time)
 Ti: Integral Time Constant  
 Td: Derivative Time Constant (increasing this value improves stability and reduces overshoot %)  
 
-Depending on whether a control system is implemented with a P, PI, PD, or PID controller, the respective parameters would be included in the transfer function. 
+Depending on whether a control system is implemented with a P, PI, PD, or PID controller, the respective parameters would be included in the transfer function.  
 The First step in the Ziegler-Nichols method is to set Kp to the maximum value your system will steadily oscilate at, making the system marginally stable. Because the system is now oscillating, the ultimate period Pcr can be measured. Both the value for Kp used to sustain oscillation and the value measured Pcr can then be used to determine the time constants Ti and Td.
 
 # Usage & Implementation Guide
